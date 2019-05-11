@@ -1,0 +1,137 @@
+html { min-width: 776px; }
+
+body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    color: #000;
+    font-size: 14px;
+    line-height: 160%;
+    text-align: center;
+    background: #6d89dd;
+    font-family: '宋体','新宋体',Arial, Verdana, sans-serif;
+}
+
+a {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+a:link { color: #e66311;}
+a:visited {color: #e66133;}
+a:hover {color: #637dbc; text-decoration: underline;}
+
+pre {
+    text-indent: 0;
+    background: #dddddd;
+    padding: 0;
+    margin: 0;
+    color: blue;
+}
+
+#top {
+    width: 776px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px;
+    height: 12px;
+    background: url('../img/bg_top1.gif') #fff repeat-x left top;
+    overflow: hidden;
+}
+
+#top1 {
+    width: 776px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px;
+    height: 121px;
+}
+
+#main {
+    width: 776px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.2em 0px;
+    background: url('../img/bg_dot1.gif') #fff repeat left top;
+    text-align: left;
+}
+
+#content {
+    width: 710px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1em;
+    background: #fff;
+}
+
+#title {
+    font-weight: bold;
+    margin: 0px 0px 0.5em 0px;
+    padding: 0.5em 0px 0.5em 1em;
+    font-size: 24px;
+    color: #00a06b;
+    text-align: left;
+    border-bottom: solid #9ea3c1 2px;
+}
+
+.sub {
+    color: #00a06b;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+    padding: 1em 2em 0;
+    background: url('../img/0.gif') #fff no-repeat 1em 74%;
+}
+
+.content {
+    text-indent: 2em;
+    font-size: 13px;
+    margin-left: 2em;
+    padding: 1em 6px;
+}
+
+#gotop {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: #fff;
+    height: 2em;
+    font-size: 12px;
+    text-align: right;
+}
+
+#footer {
+    clear: both;
+    width: 776px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px;
+    background: url('../img/bg_tottom.gif') #fff repeat left top;
+    text-align: center;
+    height: 39px;
+    color: #ddd;
+}
+
+#copyright {
+    width: 776px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 5px 0px 0px 0 px;
+    background: #fff;
+    text-align: center;
+    height: 60px;
+    line-height: 15px;
+    font-size: 15px;
+    color: #9ea0bb;
+}
+
+#copyright a { color: #667ebe; }
+
+.box { background: url('../img/nt.gif') repeat;}
+.tl { background: url('../img/tl.gif') no-repeat top left;}
+.tr { background: url('../img/tr.gif') no-repeat top right;}
+.bl { background: url('../img/bl.gif') no-repeat bottom left;}
+.br { background: url('../img/br.gif') no-repeat bottom right;}
