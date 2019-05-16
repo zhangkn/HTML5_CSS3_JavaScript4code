@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+
+var user = prompt("请输入你的用户名：");
+if( ! ! user){	// 把输入的信息转换为布尔值
+    var ok = confirm("你输入的用户名为：\n" + user + "\n请确认。");
+	// 输入信息确认
+    if(ok){
+        alert("欢迎你：\n" + user );
+    }
+    else{	// 重新输入信息
+        user = prompt("请重新输入你的用户名：");
+        alert("欢迎你：\n" + user );
+    }
+}else {	// 提示输入信息
+    user = prompt("请输入你的用户名：");
+}
+
+
+</script>
+</head>
+<body>
+</body>
+</html> 

@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<script src="jquery/jquery-1.11.1.js" type="text/javascript"></script>
+<script>
+$(function(){ 
+	var red = $("p span");		//选择元素中包含的span元素，并返回该元素的jQuery对象引用指针
+	red.css("color","red");		//调用jQuery对象的css()函数，定义选取对象的CSS样式，其中第1个参数表示CSS属性名，第2个参数表示CSS属性值。
+})
+</script>
+</head>
+<body>
+<div><span>文本块1</span></div>
+<p><span>文本块2</span></p>
+</body>
+</html> 

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+
+// 创建一个<table>元素和一个<tbody>元素 
+table = document.createElement("table"); 
+tablebody = document.createElement("tbody"); 
+//创建所有的单元格 
+for(var j = 0; j < 2; j++) { 
+	// 创建一个<tr>元素 
+	current_row = document.createElement("tr"); 
+	for(var i = 0; i < 2; i++) { 
+		// 创建一个<td>元素 
+		current_cell = document.createElement("td"); 
+		//创建一个文本节点 
+		currenttext = document.createTextNode("第"+j+"行，第"+i+"列"); 
+		// 将创建的文本节点添加到<td>里 
+		current_cell.appendChild(currenttext); 
+		// 将列<td>添加到行<tr> 
+		current_row.appendChild(current_cell); 
+	} 
+	// 将行<tr>添加到<tbody> 
+	tablebody.appendChild(current_row); 
+} 
+// 将<tbody>添加到<table> 
+table.appendChild(tablebody); 
+//将<table>添加到<body> 
+document.body.appendChild(table); 
+
+
+
+</script>
+</body>
+</html> 

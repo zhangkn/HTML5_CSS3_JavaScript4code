@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+function f( a, b ){ 
+    var a = a.toLowerCase;
+    var b = b.toLowerCase; 
+    if( a < b ){ 
+        return  1;
+    }
+    else{
+        return -1;
+    }
+}
+var a = ["aB", "Ab", "Ba", "bA"];				// 定义数组
+a.sort( f ); 
+alert( a ); 								//["bA","Ba","Ab", "aB"]
+
+</script>
+</head>
+<body>
+</body>
+</html> 

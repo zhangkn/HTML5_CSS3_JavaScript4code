@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+
+// 获取指定元素的样式属性值
+// 参数：e表示具体的元素，n表示要获取元素的脚本样式的属性名，如"width"、"borderColor"
+// 返回值：返回该元素e的样式属性n的值
+function getStyle(e,n){
+    if(e.style[n]){ 
+	// 如果在Style对象中存在，说明已显式定义，则返回这个值
+        return e.style[n];
+    }
+    else if(e.currentStyle){ 
+	// 否则，如果是IE浏览器，则利用它的私有方法读取当前值
+        return e.currentStyle[n];
+    }
+    // 如果是支持DOM标准的浏览器，则利用DOM定义的方法读取样式属性值
+    else if(document.defaultView && document.defaultView.getComputedStyle){
+        n = n.replace(/([A-Z])/g,"-$1");	// 转换参数的属性名
+        n = n.toLowerCase();
+        var s = document.defaultView.getComputedStyle(e,null); 
+		// 获取当前元素的样式属性对象
+        if(s) 							// 如果当前元素的样式属性对象存在
+            return s.getPropertyValue(n); 	// 则获取属性值
+    }
+    else									// 如果都不支持，则返回null
+        return null;
+}
+
+// 获取指定元素距离定位包含框元素左上角的偏移坐标
+// 参数：e表示获取位置的元素
+// 返回值：返回对象直接量，其中属性x表示x轴偏移距离，属性y表示y轴偏移距离
+function getB(e){
+    return {
+        "x" : (parseInt(getStyle(e, "left")) || 0) ,
+        "y" : (parseInt(getStyle(e, "top")) || 0) 
+    };
+}
+
+// 设置元素的相对位置，即相对于当前位置进行偏移
+// 参数：e表示设置位置的元素，o表示一个对象，对象包含的属性x代表x轴偏移距离，属性y代表y轴偏移距离，不用附带单位，默认以像素为单位
+// 返回值：无
+function offsetP(e, o){
+    (e.style.position) || (e.style.position = "absolute");
+	// 如果元素静态显示，则对其进行绝对定位
+    e.style.left = getB(e).x + o.x + "px";		// 设置x轴的距离
+    e.style.top = getB(e).y + o.y + "px";		// 设置y轴的距离
+}
+
+</script>
+<style type="text/css">
+div {
+    width:200px; height:100px; border:solid 1px red; padding:50px; 
+position:absolute; left:50px; top:50px;
+}
+</style>
+</head>
+<body>
+
+
+<div id="wrap">
+    <div id="sub">
+        <div id="box"></div>
+    </div>
+</div>
+
+<script>
+var sub = document.getElementById("sub");
+offsetP(sub,{
+    x : 10, y : 200
+});
+</script>
+
+
+
+</body>
+</html> 

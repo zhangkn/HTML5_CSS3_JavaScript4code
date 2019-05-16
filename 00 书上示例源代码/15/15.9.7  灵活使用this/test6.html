@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+function Base(){
+    var _m = function(){	// 定义基类的私有函数_m()
+        return "Base";
+    };
+    this.a = _m;
+    this.b = _m();
+}
+function F(){	// 子类
+    this.m = function(){
+        return "F"
+    }
+}
+F.prototype = new Base();	// 继承基类
+var f = new F();	// 实例化子类
+alert(f.a); 	//字符串"Base"，说明this.m()中this指向F的原型对象
+alert(f.b());	//字符串"Base"alert(f.c());	//字符串"F"，说明this.m()中this指向F的实例对象
+</script>
+</head>
+<body>
+</body>
+</html> 

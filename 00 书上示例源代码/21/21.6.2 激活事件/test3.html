@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<script src="jquery/jquery-1.11.1.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$("div").bind("click", function () {
+			alert($(this).text());
+	});
+	$("p").bind("mouseover",function(){
+			$("div").trigger("click"); 
+	});
+
+
+});
+</script>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<p>段落文本</p>
+<div>盒子</div>
+
+
+</body>
+</html> 

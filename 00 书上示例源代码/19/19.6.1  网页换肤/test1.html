@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="test1(0).css" rel="stylesheet" type="text/css" media="all">
+<style type="text/css">
+#header p { text-align: right; }
+#header p span {
+    margin-right: 8px;
+    cursor: pointer;
+    padding: 25px 37px 25px 38px;
+    border: solid 1px;
+    border-color: #fff #666 #666 #fff;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -999px;
+    zoom: 1;
+}
+* html #header p span {
+    padding: 25px 36px 25px 38px;
+    width: 1px;
+    color: #fff;
+}
+#header .btn1 { background: green url(images/btn1.gif) no-repeat center; }
+#header .btn2 { background: green url(images/btn2.gif) no-repeat center; }
+#header .btn3 { background: green url(images/btn3.gif) no-repeat center; }
+</style>
+<script language="javascript" type="text/javascript">
+window.onload = function(){
+    var link = document.getElementsByTagName("link")[0];
+    var span = document.getElementById("header").getElementsByTagName("span");
+    span[0].onclick = function()
+    {
+        link.href = "test1(0).css";
+    }
+    span[1].onclick = function()
+    {
+        link.href = "test1(1).css";
+    }
+    span[2].onclick = function()
+    {
+        link.href = "test1(2).css";
+    }
+}
+</script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">
+        <h1>页头</h1>
+        <p><span title="皮肤1" class="btn1">皮肤1</span><span title="皮肤2" class="btn2">皮肤2</span><span title="皮肤3" class="btn3">皮肤3</span></p>
+    </div>
+    <div id="main">
+        <div id="leftcolumn"> 左侧栏</div>
+        <div id="rightcolumn">右侧栏</div>
+    </div>
+    <div id="footer">页脚 </div>
+</div>
+</body>
+</html> 

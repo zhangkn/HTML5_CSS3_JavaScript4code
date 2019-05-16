@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>网页布局</title>
+<style type="text/css">
+body { text-align: center; }			/* 网页居中显示（IE浏览器有效） */
+#wrap {/* 网页外套的样式 */
+    margin-left: auto; 				/* 左侧边界自动显示 */
+    margin-right: auto; 				/* 右侧边界自动显示 */
+    text-align: left; 					/* 网页正文文本居左显示 */
+    border: solid 1px red; 			/* 定义边框，方便观察，可以不定义 */
+    width: 80%; 					/* 液态宽度，只有这样才可以实现居中显示效果 */
+}
+#subwrap {/* 网页内套的样式 */
+    width: 100%;					/* 显式定义100%宽度，以便与外套同宽 */
+    float: left; 					/* 浮动显示 */
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+    <div id="subwrap">网页内套</div>
+</div>
+</html> 

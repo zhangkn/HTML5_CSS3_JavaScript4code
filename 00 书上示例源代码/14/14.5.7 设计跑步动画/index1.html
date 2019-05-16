@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+/* ============================================================
+   页面
+   ============================================================ */
+.charector-wrap {
+    position: relative;
+    width: 180px;
+    height: 300px;
+    left: 50%;
+    margin-left: -90px;
+}
+
+.charector{
+    position: absolute;
+    width: 180px;
+    height:300px;
+    background: url(img/charector.png) 0 0 no-repeat;
+    -webkit-animation-iteration-count: infinite;/* 动画无限播放 */
+    animation-iteration-count: infinite;/* 动画无限播放 */
+    -webkit-animation-timing-function:step-start;/* 马上跳到动画每一结束桢的状态 */
+    animation-timing-function:step-start;/* 马上跳到动画每一结束桢的状态 */
+}
+/* 跑步动画名称 */
+@-webkit-keyframes person-normal{/* 正常 */
+    0% {background-position: 0 0;}
+    14.3% {background-position: -180px 0;}
+    28.6% {background-position: -360px 0;}
+    42.9% {background-position: -540px 0;}
+    57.2% {background-position: -720px 0;}
+    71.5% {background-position: -900px 0;}
+    85.8% {background-position: -1080px 0;}
+    100% {background-position: 0 0;}
+}
+@keyframes person-normal{/* 正常 */
+    0% {background-position: 0 0;}
+    14.3% {background-position: -180px 0;}
+    28.6% {background-position: -360px 0;}
+    42.9% {background-position: -540px 0;}
+    57.2% {background-position: -720px 0;}
+    71.5% {background-position: -900px 0;}
+    85.8% {background-position: -1080px 0;}
+    100% {background-position: 0 0;}
+}
+
+/* 跑步动作频率控制 */
+
+ .charector{/* 正常 */
+    -webkit-animation-name: person-normal;
+    animation-name: person-normal;
+    -webkit-animation-duration: 800ms;
+    animation-duration: 800ms;
+}
+
+</style>
+</head>
+<body>
+<div class="charector-wrap " id="js_wrap">
+    <div class="charector"></div>
+</div>
+</body>
+</html> 

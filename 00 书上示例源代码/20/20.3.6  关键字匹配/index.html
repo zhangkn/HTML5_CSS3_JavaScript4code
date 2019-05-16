@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title></title>
+<script type="text/javascript">
+// 封装创建XMLHttpRequest对象
+function createXMLHTTPObject()
+{
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+	];
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i ++ )
+    {
+        try
+        {
+            xmlhttp = XMLHttpFactories[i]();
+        }
+        catch (e)
+        {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+//封装异步请求函数
+function request(url, callback, data)
+{
+    var xmlHttp = createXMLHTTPObject();
+    if ( ! xmlHttp) return;
+    var method = (data) ? "POST" : "GET";
+    xmlHttp.open(method, url, true);
+    xmlHttp.setRequestHeader('User-Agent', 'XMLHTTP/1.0');
+    if (data)
+    xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange = function ()
+    {
+        if (xmlHttp.readyState != 4) return;
+        if (xmlHttp.status != 200 && xmlHttp.status != 304)
+        {
+            alert('HTTP请求错误  ' + xmlHttp.status);
+            return;
+        }
+        callback(xmlHttp);
+    }
+    if (xmlHttp.readyState == 4) return;
+    xmlHttp.send(data);
+}
+</script>
+<script>
+function check(str){
+   if (str.length > 0)
+   {
+      var url = "test.asp?q=" + str;
+      request(url ,  callback );
+   }
+}
+
+function callback( xhr )
+{
+    var info = document.getElementById("txtHint");
+    info.innerHTML = xhr.responseText;
+
+}
+
+function ok(o){
+	  var o1 =  document.getElementById("ok1");
+      document.getElementById("txt1").value = o.value;
+}
+</script>
+</head>
+<body>
+<h1>快速匹配搜索</h1>
+<form>
+    <label for="txt1">关 键 词:</label>
+    <input name="txt1" type="text" id="txt1" onkeyup="check(this.value)" size="60"><input name="" type="submit" value="提交">
+</form>
+<p>快速匹配: <span id="txtHint">
+    <select>
+        <option>请输关键词</option>
+    </select>
+    </span></p>
+</body>
+</html>

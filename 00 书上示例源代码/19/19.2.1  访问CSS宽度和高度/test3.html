@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+
+// 获取指定元素的样式属性值
+// 参数：e表示具体的元素，n表示要获取元素的脚本样式的属性名，如"width"、"borderColor"
+// 返回值：返回该元素e的样式属性n的值
+function getStyle(e,n){
+    if(e.style[n]){ 
+	// 如果在Style对象中存在，说明已显式定义，则返回这个值
+        return e.style[n];
+    }
+    else if(e.currentStyle){ 
+	// 否则，如果是IE浏览器，则利用它的私有方法读取当前值
+        return e.currentStyle[n];
+    }
+    // 如果是支持DOM标准的浏览器，则利用DOM定义的方法读取样式属性值
+    else if(document.defaultView && document.defaultView.getComputedStyle){
+        n = n.replace(/([A-Z])/g,"-$1");	// 转换参数的属性名
+        n = n.toLowerCase();
+        var s = document.defaultView.getComputedStyle(e,null); 
+		// 获取当前元素的样式属性对象
+        if(s) 							// 如果当前元素的样式属性对象存在
+            return s.getPropertyValue(n); 	// 则获取属性值
+    }
+    else									// 如果都不支持，则返回null
+        return null;
+}
+
+</script>
+</head>
+<body>
+
+<div id="div"></div>
+<script>
+var div = document.getElementsByTagName("div")[0]; 	// 获取当前元素
+var w = getStyle(div,"width");		// 调用扩展函数，返回字符串"auto"
+
+alert(w);
+</script>
+
+
+
+
+</body>
+</html> 

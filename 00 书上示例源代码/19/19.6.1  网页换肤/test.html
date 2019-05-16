@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="style1.css" rel="stylesheet" type="text/css" media="all">
+<script>
+function changeCss(url){     
+    document.getElementsByTagName("link")[0].href=url;
+}
+</script>
+</head>
+<body>
+<div id="box">盒子</div>
+<input type="button" value="更换样式表" onClick="changeCss('style2.css')">
+</body>
+</html> 

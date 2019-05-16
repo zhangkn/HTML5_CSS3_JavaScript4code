@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<script src="jquery/jquery-1.11.1.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$("#p1");								//ID选择器
+	$("#box1 p");							//包含选择器
+	$("#box1>#p1");						//子选择器
+	$("p#p1");							//指定标签选择器
+	$("p[id='p1']"); 						//匹配属性等于特定属性值
+	$("[id$='1']"); 							//匹配属性值结尾的值
+	$("#box1 [id^='p']"); 					//包含选择器，配合匹配属性值开始的值
+	$("[id*='1']"); 							//匹配属性值包含某个字符串
+})
+</script>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<div id="box1">
+    <p id="p1">段落文本1</p>
+</div>
+<div id="box2">
+    <p id="p2">段落文本2</p>
+</div>
+<p id="p3">段落文本3</p>
+
+
+</body>
+</html> 

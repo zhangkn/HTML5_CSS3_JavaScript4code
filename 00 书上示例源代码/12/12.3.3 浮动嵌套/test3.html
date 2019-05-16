@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+#contain { background: #FF99FF; }/*包含元素*/
+span {float: left; width: 200px; height: 100px; }/*定义共同属>*/ 
+/*内嵌浮动对象样式 */
+#span1 { border: solid blue 10px; }
+#span2 { border: solid red 10px; }
+.clear {/*定义清除类*/
+	clear:both; 
+}
+</style>
+</head>
+
+<body>
+<div id="contain">
+	<span id="span1">span元素浮动</span>
+	<span id="span2">span元素浮动</span>
+    <div class="clear"></div><!--增加一个清除元素-->
+</div>
+</body>
+</html> 

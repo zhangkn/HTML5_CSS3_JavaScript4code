@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+function wrap(tag) {
+    var stag = '<' + tag + '>';
+    var etag = '</' + tag.replace(/s.*/, '') + '>';
+    return function(x) {
+        return stag + x + etag;
+    }
+}
+var B = wrap('B');
+document.write(B('粗粗体字')); 
+document.write('<br>');
+document.write(wrap('B')('粗体字'));
+
+
+</script>
+</head>
+<body>
+</body>
+</html> 

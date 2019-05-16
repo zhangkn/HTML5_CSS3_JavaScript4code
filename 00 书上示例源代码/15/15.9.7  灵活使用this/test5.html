@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+function Base(){	// 基类
+    this.m = function(){	// 基类的方法m()
+        return "Base";
+    };
+    this.a = this.m();	// 基类的属性a，调用当前作用域中的m()方法
+    this.b = this.m;	// 基类的方法b()，引用当前作用域中的m()方法
+    this.c = function(){	// 基类的方法c()，以闭包结构调用当前作用域中m()方法
+        return this.m();
+    } 
+}	
+function F(){	// 子类
+    this.m = function(){
+        return "F"
+    }
+}
+F.prototype = new Base();	// 继承基类
+var f = new F();	// 实例化子类
+alert(f.a); 	//字符串"Base"，说明this.m()中this指向F的原型对象
+alert(f.b());	//字符串"Base"
+alert(f.c());	//字符串"F"，说明this.m()中this指向F的实例对象
+</script>
+</head>
+<body>
+</body>
+</html> 

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+var o = {
+    name : "对象o",
+    f : function(){
+        return this;
+    }
+}
+o.o1 = {
+    name : "对象o1",
+    me : o.f()	// 调用对象o的方法f
+}
+var who = o.o1.me;
+alert(who.name); 	//字符串"对象o"，说明当前this代表对象o
+
+
+</script>
+</head>
+<body>
+</body>
+</html> 

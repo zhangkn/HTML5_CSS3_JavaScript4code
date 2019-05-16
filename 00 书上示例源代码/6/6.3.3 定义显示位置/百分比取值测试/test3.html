@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html>
+<head> 
+<meta charset="utf-8">
+<title>背景图像定位试验演示</title>
+<style>
+body {/* 清除页边距 */
+    margin: 0; 									/* 边界为0 */
+    padding: 0; 									/* 补白为0 */
+}
+div {/* 盒子的样式 */
+    background-image: url(images/grid.gif); 				/* 背景图像 */
+    background-repeat: no-repeat; 						/* 禁止背景图像平铺 */
+    width: 400px; 									/* 盒子宽度 */
+    height: 400px; 									/* 盒子高度 */
+    border: solid 1px red; 							/* 盒子边框 */
+}
+#box {/* 定位背景图像的位置 */
+    background-position:50% 50%;
+}
+</style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

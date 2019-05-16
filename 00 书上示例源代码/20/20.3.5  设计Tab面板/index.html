@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title></title>
+<style type="text/css">
+h1 { font-size: 20px; }
+/***  Tab面板样式
+-------------------------------------------***/
+/* Tab菜单包含框结构 */
+.tab_wrap { width: auto; }
+/* Tab菜单栏结构 */
+ul.tab {
+    height: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul.tab li {
+    float: left;
+    height: 24px;
+    padding: 0 1em;
+    cursor: pointer;
+    font: 14px/24px "宋体" Arial, Helvetica, sans-serif;
+}
+/* Tab菜单栏样式类 */
+.normal {
+    color: #1f3a87;
+    background: #fff;
+    border: 1px solid #e6f2ff;
+    border-bottom: 0;
+}
+.hover {
+    color: #1f3a87;
+    font-weight: bold;
+    background: #e6f2ff;
+    border: 1px solid #e6f2ff;
+    border-bottom: 0;
+}
+/* Tab内容显隐样式类 */
+.show { display: block; }
+.none { display: none; }
+/* Tab内容包含框结构 */
+.content {
+    height: auto;
+    padding: 6px;
+    clear: both;
+    background: #e6f2ff;
+    text-align: left;
+}
+</style>
+<script>
+function hover(event){
+    var $ = function(o){ 
+        if(typeof(o) == "string") 
+        return document.getElementById(o); 
+        return o; 
+    }
+    var tab = $("tab").getElementsByTagName("li");
+    var content = $("content").getElementsByTagName("div");
+    var check=function(tab, o) {
+        if(document.addEventListener){
+            return tab.addEventListener("mouseover", o, true);
+        }
+        else if(document.attachEvent){
+            return tab.attachEvent("onmouseover", o);
+        }
+    }
+    ;
+    for(var i = 0; i < tab.length; i ++ )
+    {
+        (function(j){
+            check(tab[j], function(){
+                for(var n = 0; n < tab.length; n ++ )
+                {
+                    tab[n].className = "normal";
+                    content[n].className = "none";
+                }
+                tab[j].className = "hover";
+                content[j].className = "show";
+            }
+            );
+        }
+        )(i);
+    }
+}
+window.onload = function()
+{
+    hover();
+	check(1);
+}
+//以上是Tab菜单的脚本
+/////////////////////////////////////////////////////////////////////
+//以下是Ajax自动分类查询脚本
+//-----------------------------------
+</script>
+<script>
+// 封装创建XMLHttpRequest对象
+function createXMLHTTPObject()
+{
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+	];
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i ++ )
+    {
+        try
+        {
+            xmlhttp = XMLHttpFactories[i]();
+        }
+        catch (e)
+        {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+var request = createXMLHTTPObject();
+
+function check(n){
+    request.open( "GET", "test.asp?coun=" + n, true );
+    request.onreadystatechange = function(){
+		updatePage(n);
+	};
+    request.send( null );
+}
+
+function updatePage(n)
+{
+	if(n==1){
+   		var info = document.getElementById( "content_1" );
+	}else{
+		var info = document.getElementById( "content_2" );
+	}
+    if( request.readyState == 1 )
+    {
+        info.innerHTML = "<img src='images/loading.gif' />，连接中......";
+    }
+    else if( request.readyState == 2 || request.readystate == 3 )
+    {
+        info.innerHTML = "<img src='images/loading.gif' />，读数据......";
+    }
+    else if( request.readyState == 4 )
+    {
+        if( request.status == 200 )
+        {
+            xml = request.responseXML;
+            info.innerHTML = showXml( xml );
+        }
+        else
+        alert( request.status );
+    }
+
+}
+
+function showXml( xml )
+{
+    var count = "";
+    var html = "";
+    var items = xml.getElementsByTagName( "item" );
+    html += "<table><tr><th>成员名</th><th>类型</th><th>说明</th></tr>"
+    //for( var i  in  items ){
+	for( var i=0 ; i< items.length; i++ ){
+        html += "<tr>"
+        var child = items[i].childNodes
+        //for( var n in child ){
+		for( var n=0 ; n< child.length; n++ ){
+			if( child[n].nodeType == 1 ){
+				html += "<td>"
+				html += child[n].firstChild.data;
+				html += "</td>"
+			}
+        }
+        html += "</tr>";
+    }
+    html += "</table>"
+    return html;
+}
+</script>
+<style type="text/css">
+table {
+    margin: 1em;
+    border-collapse: collapse;
+    border: solid 1px #FF33FF;
+}
+td, th {
+    border: solid 1px #FF33FF;
+    padding: 4px 8px;
+}
+</style>
+</head>
+<body>
+<h1>XMLHttpRequest对象成员参考</h1>
+<div class="tab_wrap">
+    <ul class="tab" id="tab">
+        <li id="tab_1" onMouseOver="check(1)" class="hover">属性</li>
+        <li id="tab_2" onMouseOver="check(2)" class="normal">方法</li>
+    </ul>
+    <div class="content" id="content">
+        <div id="content_1" class="show">暂无属性</div>
+        <div id="content_2" class="none">暂无方法</div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<div id="info"></div>
+<script type="text/javascript">
+
+
+
+function createXMLHTTPObject()
+{
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+	];
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i ++ )
+    {
+        try
+        {
+            xmlhttp = XMLHttpFactories[i]();
+        }
+        catch (e)
+        {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+
+var x = createXMLHTTPObject();
+var url = "server.txt";
+x.open("GET", url, true);
+x.onreadystatechange = function ()
+{
+    if ( x.readyState == 4 && x.status == 200 )
+    {
+		var info = document.getElementById("info")
+		info.innerHTML = x.getAllResponseHeaders();
+        alert(x.getResponseHeader("Content-Type"));
+    }
+}
+x.send(null);
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<script type="text/javascript">
+
+//【示例】如果仅检测通用信息，那么所有Windows版本的操作系统都会包含"Win"字符串，而所有的Macintosh版本操作系统都包含有"Mac"字符串，所有的UNIX版本操作系统都包含有"X11"，而在Linux操作系统下则同时包含"X11"和"Linux"。所以，用户可以通过快速检测用户端信息中是否包含上述字符串来进行准确判断：
+var isWin = (navigator.userAgent.indexOf("Win") != - 1);
+	// 如果是Windows系统，则返回true
+var isMac = (navigator.userAgent.indexOf("Mac") != - 1); 
+	// 如果是Macintosh系统，则返回true 
+var isUnix = (navigator.userAgent.indexOf("X11") != - 1); 
+	// 如果是UNIX系统，则返回true
+var isLinux = (navigator.userAgent.indexOf("Linux") != - 1); 
+	// 如果是Linux系统，则返回true
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html> 

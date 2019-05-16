@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>异步信息交互</title>
+<script type="text/javascript"> 
+function callback(info)
+{
+    alert(info);
+}
+function request(url)
+{
+    if( ! document.script)
+    {
+        document.script = document.createElement("script");
+        document.script.setAttribute("type", "text/javascript");
+        document.script.setAttribute("src", url);
+        document.body.appendChild(document.script);
+    }
+    else
+    {
+        document.script.setAttribute("src", url);
+    }
+
+}
+
+window.onload = function()
+{
+    var b = document.getElementsByTagName("input")[0];
+    b.onclick = function(){
+        var url = "server(gb2312).asp?callback=callback"
+        request(url);
+    }   
+}
+
+
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head>
+<body>
+<h1>客户端信息提交页面</h1>
+<input name="submit" type="button" id="submit" value="向服务器发出请求" />
+</body>
+</html> 

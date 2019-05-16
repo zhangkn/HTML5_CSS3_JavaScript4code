@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+
+function hasIEPlugin(name){
+	try {
+		new ActiveXObject(name);
+		return true;
+	} catch (ex){
+		return false;
+	}
+}
+
+alert(hasIEPlugin("ShockwaveFlash.ShockwaveFlash"));
+alert(hasIEPlugin("QuickTime.QuickTime"));
+
+</script>
+</head>
+<body>
+</body>
+</html> 

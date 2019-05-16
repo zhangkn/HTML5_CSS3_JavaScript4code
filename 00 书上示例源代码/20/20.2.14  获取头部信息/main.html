@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+var xmlHttp;
+if (window.XMLHttpRequest)
+{
+    xmlHttp = new XMLHttpRequest();
+}
+else if (window.ActiveXObject)
+{
+    try
+    {
+        xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    catch (e)
+    {
+        try
+        {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        catch (e)
+        {
+        }
+    }
+}
+
+
+
+function request(url)
+{
+    xmlHttp.open("GET", url, false);
+    xmlHttp.onreadystatechange = handleStateChange;	
+    xmlHttp.send(null);
+	
+}
+
+
+function handleStateChange()
+{
+    if(xmlHttp.readyState == 4)
+    {
+        if (xmlHttp.status == 200 || xmlHttp.status == 0)
+        {
+            alert(xmlHttp.responseText);
+			alert(xmlHttp.responseXML.getElementsByTagName("the")[0].firstChild.data);
+        }
+    }
+}
+
+window.onload = function()
+{
+    var b = document.getElementsByTagName("input")[0];
+    b.onclick = function()
+    {
+        var url = "server.asp?callback=functionName"
+        request(url);
+    }
+}
+
+</script>
+<meta charset="utf-8">
+</head>
+<body>
+<h1>Ajax异步数据传输</h1>
+<input name="submit" type="button" id="submit" value="向服务器发出请求">
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单结构</title>
+<style type="text/css">
+table {
+    text-align: left;	/* 设置左对齐 */
+    font-size: 14px; 	/* 设置文字大小 */
+    margin: 0 auto; 	/* 设置水平居中 */
+}
+td { padding: 6px; }
+</style>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <td><label for="user" accesskey="1">姓名:</label></td>
+            <td><input type="text" name="text" value="张三" size="20" tabindex="1" id="user"></td>
+        </tr>
+        <tr>
+            <td><label for="password" >密码:</label></td>
+            <td><input type="text" name="password" id="password" value="******"size="20" tabindex="3"></td>
+        </tr>
+        <tr>
+            <td><label for="password1" >确认:</label></td>
+            <td><input type="text" name="password1" id="password1" value="******" size="20" tabindex="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button tabindex="-1">提交</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html> 

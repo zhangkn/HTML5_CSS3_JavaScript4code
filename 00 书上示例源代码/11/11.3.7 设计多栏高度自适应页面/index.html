@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>网页布局</title>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+}
+body { text-align: center; }
+#model {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+#header { background: #FF00FF; }
+#main {
+    position: relative;
+    width: 100%;
+    background: url(images/bg.gif) center repeat-y
+}
+#content {
+    margin-left: 25%;
+    margin-right: 20%;
+}
+#subplot {
+    width: 20%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#serve {
+    width: 25%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#footer { background: #FF99FF; }
+</style>
+<script type="text/javascript" language="javascript">
+window.onload = function(){
+    var main = document.getElementById("main");
+    // 定义即将控制的外框div
+    var left = document.getElementById("subplot").offsetHeight;
+    // 获得内部三栏中ID = subplo的div高度
+    var right = document.getElementById("serve").offsetHeight;
+    // 获得内部三栏中ID = serve的div高度
+    var middle = document.getElementById("content").offsetHeight;
+    // 获得内部三栏中ID = content的div高度
+    var height = 0;
+    // 定义变量来储存最大值
+    height = left - right > 0 ? left : right;
+    // 数值比较
+    height = middle - height > 0 ? middle : height;
+    // 数值比较
+    main.style.height = height + "px";
+    // 设定外框div的高度为 得出的最大高度
+}
+</script>
+</head>
+<body>
+<div id="model">
+    <div id="header">
+        <h1>网页标题</h1>
+        <h2>网页副标题</h2>
+    </div>
+    <div id="main">
+        <div id="content">
+            <h3>主信息区域</h3>
+            <p>正文内容</p>
+            <p>正文内容</p>
+        </div>
+        <div id="subplot">
+            <h3>次信息区域</h3>
+            <p>正文内容</p>
+        </div>
+        <div id="serve">
+            <dl>
+                <dt>功能服务区域</dt>
+                <dd>服务列表项</dd>
+                <dd>服务列表项</dd>
+                <dd>服务列表项</dd>
+                <dd>服务列表项</dd>
+                <dd>服务列表项</dd>
+                <dd>服务列表项</dd>
+                <dd>服务列表项</dd>
+                <dd>服务列表项</dd>
+            </dl>
+        </div>
+    </div>
+    <div id="footer">
+        <p>版权信息区域</p>
+    </div>
+</div>
+</html> 

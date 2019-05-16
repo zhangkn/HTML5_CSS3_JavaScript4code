@@ -1,0 +1,9 @@
+1. 文档能力：良好的英文阅读，写作能力以及技术文档编写能力。
+2. 项目交付：项目技术文档编写，整体进展掌控能力，各部门协调处理能力。
+3. Django框架：使用restful api风格编程，掌握session/jwt认证，掌握restful工作流程。
+4. 监控平台：掌握 mrtg，cacti，zabbix 开源监控软件使用。
+5. 编程语言：掌握shell，perl，python，一般掌握html/css/javascript语言，正在学习go语言。
+6. 自动化运维：IDC管理经验及大批量服务器标准化维护管理经验；熟练使用puppet，saltstack 和 ansible 自动化运维管理工具。
+7. 虚拟化平台：掌握虚拟化KVM知识，VMware和RHV私有云平台部署维护；掌握Docker容器技术及OpenShift平台部署维护。
+8. 网络能力：熟练掌握TCP/IP四层，交换机VLAN、VTP、STP、三层交换等协议的原理及配置维护; ACL 访问控制列表；网络故障诊断和排除等技术。
+9. 分部式存储：丰富CEPH平台规划，实施部署和项目交付经验。

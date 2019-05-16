@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+function adder(num) {
+    return function(x) {
+        return num + x;
+    }
+}
+var add5 = adder(5);
+var add6 = adder(6);
+print(add5(1));										// 6
+print(add6(1)); 									//7
+
+</script>
+</head>
+<body>
+</body>
+</html> 

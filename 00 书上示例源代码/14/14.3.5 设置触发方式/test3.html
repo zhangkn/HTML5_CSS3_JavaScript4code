@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+label {
+    display: block;
+    margin: 6px 2px;
+}
+input[type="text"], input[type="password"] {
+    padding: 4px;
+    border: solid 1px #ddd;
+    transition: background-color 1s ease-in;
+}
+input:focus {
+    background-color: #9FFC54;
+}
+</style>
+</head>
+<body>
+<form id=fm-form action="" method=post>
+    <fieldset>
+        <legend>用户登录</legend>
+        <label for="name">姓名
+            <input type="text" id="name" name="name" >
+        </label>
+        <label for="pass">密码
+            <input type="password" id="pass" name="pass" >
+        </label>
+    </fieldset>
+</form>
+</body>
+</html> 

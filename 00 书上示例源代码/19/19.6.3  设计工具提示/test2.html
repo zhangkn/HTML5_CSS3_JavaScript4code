@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+.title {
+	padding:4px 8px;
+    border:solid 2px red;
+    background:blue;
+    color:#fff;
+    text-decoration:none;
+}
+</style>
+<script language="javascript" type="text/javascript">
+window.onload = function()
+{
+    var a = document.getElementsByTagName("a");
+    for(var i = 0; i < a.length; i ++ )
+    {
+        tit = a[i].getAttribute("title");
+        if(tit)  a[i].removeAttribute("title");
+
+        var div = document.createElement("div");
+        var txt = document.createTextNode(tit);
+        div.setAttribute("class", "title");
+		div.setAttribute("className", "title");
+        div.style.position = "absolute";
+        div.appendChild(txt);
+
+        a[i].onmouseover = (function(i,div)
+        {
+            return function()
+            {
+                a[i].appendChild(div);
+            }
+        }
+        )(i,div);
+        a[i].onmouseout = (function(i,div)
+        {
+            return function()
+            {
+                a[i].removeChild(div);
+            }
+        }
+        )(i,div);
+        a[i].onmousemove = (function(div,e)
+        {
+            return function(e)
+            {
+                var posx = 0, posy = 0;
+                if(e == null) e = window.event;
+                if(e.pageX || e.pageY)
+                {
+                    posx = e.pageX;
+                    posy = e.pageY;
+                }
+                else if(e.clientX || e.clientY)
+                {
+                    if(document.documentElement.scrollTop)
+                    {
+                        posx = e.clientX + document.documentElement.scrollLeft;
+                        posy = e.clientY + document.documentElement.scrollTop;
+                    }
+                    else
+                    {
+                        posx = e.clientX + document.body.scrollLeft;
+                        posy = e.clientY + document.body.scrollTop;
+                    }
+                }
+                div.style.top = (posy + 20) + "px";
+                div.style.left = (posx + 10) + "px";
+            }
+
+        }
+        )(div);
+    }
+}
+</script>
+</head>
+<body>
+<a href="#" title="新浪首页" target="_blank">新浪</a><br>
+<a href="#" title="百度首页" target="_blank">百度</a><br>
+<a href="#" title="腾讯首页" target="_blank">腾讯</a><br>
+<a href="#" title="搜狐首页" target="_blank">搜狐</a>
+</body>
+</html> 

@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+function f(){
+    // 如果当前执行域对象的构造函数等于当前函数，则表示this为实例对象
+    if(this.constructor == arguments.callee) alert("this = 实例对象");
+    // 如果当前执行域对象等于window，则表示this为Window对象
+    else if (this == window) alert("this = window对象");
+    // 如果当前执行域对象为其他对象，则表示this为其他对象
+    else alert("this == 其他对象 \nthis.constructor = " + this.constructor );
+}
+f();	// this指向Window对象
+new f();	// this指向实例对象
+f.call(1); 	// this指向数值实例对象
+
+</script>
+</head>
+<body>
+</body>
+</html> 

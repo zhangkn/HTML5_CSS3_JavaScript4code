@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+var a = {
+    user:"ccs8",
+    padd:"123456",
+    email:"css8@mysite.cn"
+}
+
+var b = [
+    { name:"text", value:"css8" },
+    { name:"text", value:"123456" },
+    { name:"text", value:"css8@mysite.cn" }
+]
+
+function toString(data){
+    var a = [];
+    if( data.constructor == Array){
+        for(var i = 0 ; i < data.length ; i++){
+            a.push(data[i].name + "=" + encodeURIComponent(data[i].value));
+        }  
+    }
+    else{
+        for(var i in data){
+            a.push(i + "=" + encodeURIComponent(data[i]));
+        }
+    }
+    return a.join("&");
+}
+
+var s1 = toString(a);
+var s2 = toString(b);
+
+alert(s1);
+alert(s2);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+<script type="text/javascript">
+// 封装创建XMLHttpRequest对象
+function createXMLHTTPObject()
+{
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+	];
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i ++ )
+    {
+        try
+        {
+            xmlhttp = XMLHttpFactories[i]();
+        }
+        catch (e)
+        {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+//封装异步请求函数
+function request(url, callback, data)
+{
+    var xmlHttp = createXMLHTTPObject();
+    if ( ! xmlHttp) return;
+    var method = (data) ? "POST" : "GET";
+    xmlHttp.open(method, url, true);
+    xmlHttp.setRequestHeader('User-Agent', 'XMLHTTP/1.0');
+    if (data)
+    xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange = function ()
+    {
+        if (xmlHttp.readyState != 4) return;
+        if (xmlHttp.status != 200 && xmlHttp.status != 304)
+        {
+            alert('HTTP请求错误  ' + xmlHttp.status);
+            return;
+        }
+        callback(xmlHttp);
+    }
+    if (xmlHttp.readyState == 4) return;
+    xmlHttp.send(data);
+}
+</script>
+</head>
+
+<body>
+<script type="text/javascript">
+//定义请求地址
+var url = "JSON_server.js";
+//定义回调函数，参数为XMLHttpRequest对象
+var callback = function(xmlHttp){
+        var info = xmlHttp.responseText;
+        var  o = eval("(" + info + ")");
+        alert(info);
+        alert(o[1].name);	
+	
+}
+//调用请求函数
+request(url, callback);
+</script>
+</body>
+</html>

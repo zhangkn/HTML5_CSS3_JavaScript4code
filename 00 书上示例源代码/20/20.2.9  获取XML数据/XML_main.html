@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+
+<body>
+<div id="grid"></div>
+<script type="text/javascript">
+function createXMLHTTPObject()
+{
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+	];
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i ++ )
+    {
+        try
+        {
+            xmlhttp = XMLHttpFactories[i]();
+        }
+        catch (e)
+        {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+
+var x = createXMLHTTPObject();
+var url = "XML_server.xml";
+x.open("GET", url, true);
+x.onreadystatechange = function ()
+{
+    if ( x.readyState == 4 && x.status == 200 )
+    {
+		
+        var  info = x.responseXML;
+		alert(info.getElementsByTagName("the")[0].firstChild.data);
+    }
+}
+x.send(null);
+
+
+</script>
+</body>
+</html>

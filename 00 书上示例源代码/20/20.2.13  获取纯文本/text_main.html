@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+
+<body>
+<div id="grid"></div>
+<script type="text/javascript">
+function createXMLHTTPObject()
+{
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+	];
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i ++ )
+    {
+        try
+        {
+            xmlhttp = XMLHttpFactories[i]();
+        }
+        catch (e)
+        {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+
+var x = createXMLHTTPObject();
+var url = "Text_server.txt";
+x.open("GET", url, true);
+x.onreadystatechange = function ()
+{
+    if ( x.readyState == 4 && x.status == 200 )
+    {
+		
+        var  info = x.responseText;
+		if(info == "true") alert("文本信息传输完整");
+		else  alert("文本信息可能存在丢失");
+    }
+}
+x.send(null);
+
+
+</script>
+</body>
+</html>

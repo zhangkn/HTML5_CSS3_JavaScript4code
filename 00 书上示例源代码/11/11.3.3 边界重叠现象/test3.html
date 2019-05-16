@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+/*[包含元素的边界重叠问题-不设置父元素的补白和边框]*/
+body {/*清除页边距*/
+    margin:0; /*适用IE*/
+    padding:0; /*适用非IE*/
+}
+#box1{ /*不定义父元素的边框、补白，仅设置边界*/
+    margin:20px; /*父元素的边界为20px*/
+    background-image:url(images/1.jpg);
+}
+#box2 { /*定义子元素的属性*/
+    margin:60px; /*子元素的边界为60px*/
+    border:solid 20px red;
+    padding:20px;
+    width:150px;
+    height:150px;
+    background-image:url(images/2.jpg);
+}
+</style>
+</head>
+<body>
+<div id="box1">
+    <div id="box2">子元素</div>
+</div>
+</body>
+</html> 

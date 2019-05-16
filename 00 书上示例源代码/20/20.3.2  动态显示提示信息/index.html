@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+// 封装创建XMLHttpRequest对象
+function createXMLHTTPObject()
+{
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+	];
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i ++ )
+    {
+        try
+        {
+            xmlhttp = XMLHttpFactories[i]();
+        }
+        catch (e)
+        {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+//封装异步请求函数
+function request(url, callback, data)
+{
+    var xmlHttp = createXMLHTTPObject();
+    if ( ! xmlHttp) return;
+    var method = (data) ? "POST" : "GET";
+    xmlHttp.open(method, url, true);
+    xmlHttp.setRequestHeader('User-Agent', 'XMLHTTP/1.0');
+    if (data)
+    xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange = function ()
+    {
+        if (xmlHttp.readyState != 4) return;
+        if (xmlHttp.status != 200 && xmlHttp.status != 304)
+        {
+            alert('HTTP请求错误  ' + xmlHttp.status);
+            return;
+        }
+        callback(xmlHttp);
+    }
+    if (xmlHttp.readyState == 4) return;
+    xmlHttp.send(data);
+}
+</script>
+
+<script>
+var xhr =createXMLHTTPObject();
+window.onload = function(){
+    var str = "test.asp?data=Hello world!";
+    xhr.open( "GET", str, true );
+    xhr.onreadystatechange = updatePage;
+    xhr.send( null );
+}
+function updatePage()
+{
+    var info = document.getElementById( "info" );
+    if( xhr.readyState == 1 )
+    {
+        info.innerHTML = "<img src='images/loading.gif' />   连接中......";
+    }
+    else if( xhr.readyState == 2 || xhr.readystate == 3 )
+    {
+        info.innerHTML = "<img src='images/loading.gif' />   读数据......";
+    }
+    else if( xhr.readyState == 4 )
+    {
+        if( xhr.status == 200 )
+        {
+            info.innerHTML = "<span>" + xhr.responseText + "</span>";
+        }
+        else
+        alert( xhr.status );
+    }
+
+}
+</script>
+<style type="text/css">
+h1 {
+    color:#888;
+    font-size:16px;
+}
+h1 span {
+    padding:1em;
+    color:red;
+    font-size:32px;
+}
+</style>
+</head>
+<body>
+<h1 id="info"></h1>
+</body>
+</html>

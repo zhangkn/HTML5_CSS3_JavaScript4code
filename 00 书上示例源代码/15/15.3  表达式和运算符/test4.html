@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+
+window.onload =function(){
+	document.getElementById("info").innerHTML = window.location;
+	
+}
+
+
+
+</script>
+</head>
+<body>
+<form action="#123456?name=ok" method="get" name="form1" id="form1" >
+	<input type="text" value="zhangsan" name="name" /><br>
+    <input type="password" value="123456" name="pass" /><br>
+	<textarea cols="80" rows="3" id="info"></textarea>
+</form>
+
+<a href="javascript:void(document.forms[0].submit())">提交表单</a> 
+
+</body>
+</html> 

@@ -1,0 +1,1 @@
+alert("file2.js"); 

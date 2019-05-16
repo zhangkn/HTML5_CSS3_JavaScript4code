@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+
+myWindow=window.open();
+myWindow.document.write("<h1>这是新打开的窗口</h1>");
+myWindow.focus();
+myWindow.opener.document.write("<h1>这是原来窗口</h1>");
+alert( myWindow.opener == window);
+
+</script>
+</head>
+<body>
+</body>
+</html> 

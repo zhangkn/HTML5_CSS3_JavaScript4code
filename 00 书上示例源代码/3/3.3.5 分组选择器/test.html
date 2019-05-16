@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="IE8.js"></script>
+<style type="text/css">
+h1, h2, h3, h4, h5, h5, h6 {
+    background-color: #99CC33;	/* 设置背景色 */
+    margin: 0;	/* 清除标题的默认外边距 */
+    margin-bottom: 10px;	/* 使用下边距拉开各个标题之间的距离 */
+}
+h1+h2, h2+h3, h4+h5 { color: #0099FF;	/* 兄弟关系 设置字体的颜色 */ }
+body>h6, h1>span, h4>span { font-size: 20px;	/* 子选择器 设置字体的大小 */ }
+h2 span, h3 span { padding: 0 20px;	/* <span>标签的左右间距 */ }
+h5 span[class], h6 span[class] { background-color: #CC0033;	/* h5、h6标题中含有class属性的span标签设置背景色 */ }
+</style>
+</head>
+<body>
+<h1>h1元素<span>这里是span元素</span></h1>
+<h2>h2元素<span>这里是span元素</span></h2>
+<h3>h3元素<span>这里是span元素</span></h3>
+<h4>h4元素<span>这里是span元素</span></h4>
+<h5>h5元素<span class="S1">这里是span元素</span></h5>
+<h6>h6元素<span class="S2">这里是span元素</span></h6>
+</body>
+</html> 

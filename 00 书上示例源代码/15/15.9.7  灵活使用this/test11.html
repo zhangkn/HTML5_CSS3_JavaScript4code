@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+var o ={};
+o.f = function(){
+    if(this == o) alert("this = o");
+    if(this == window) alert("this = window");
+    if(this == button) alert("this = button");
+}
+setTimeout(function(){
+    o.f.call(o);
+}, 100);
+
+</script>
+</head>
+<body>
+</body>
+</html> 

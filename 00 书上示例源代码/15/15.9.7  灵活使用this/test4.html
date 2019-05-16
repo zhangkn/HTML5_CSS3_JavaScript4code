@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+function f(){	// 函数f()
+    alert(this.x + this.y);
+}
+var o = {	// 对象直接量
+    x : 1,
+    y : 2
+}
+f.call(o); 	// 执行函数f()，返回值为3
+
+</script>
+</head>
+<body>
+</body>
+</html> 

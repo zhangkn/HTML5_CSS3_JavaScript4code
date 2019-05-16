@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<script src="jquery/jquery-1.11.1.js" type="text/javascript"></script>
+<script>
+$(function(){ 
+})
+</script>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<input type="text" value="文本框" />
+<input type="radio" value="单选按钮" />
+<input type="checkbox" value="复选框" />
+<input type="hidden" value="隐藏域" />
+<input type="submit" value="提交按钮"/>
+<script>
+alert($("input").val());
+alert($($("input")[1]).val());						//显示单选按钮的值
+alert($($("input")[2]).val());						//显示复选框的值
+alert($($("input")[3]).val());						//显示隐藏域的值
+alert($($("input")[4]).val());						//显示提交按钮的值
+
+</script>
+
+</body>
+</html> 

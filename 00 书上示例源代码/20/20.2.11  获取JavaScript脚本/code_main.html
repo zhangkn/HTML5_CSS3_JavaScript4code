@@ -1,0 +1,53 @@
+<html>
+<head>
+<title></title>
+</head>
+
+<body>
+<script type="text/javascript">
+
+
+
+function createXMLHTTPObject()
+{
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+	];
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i ++ )
+    {
+        try
+        {
+            xmlhttp = XMLHttpFactories[i]();
+        }
+        catch (e)
+        {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+
+var x = createXMLHTTPObject();
+var url = "code_server.js";
+x.open("GET", url, true);
+x.onreadystatechange = function ()
+{
+    if ( x.readyState == 4 && x.status == 200 )
+    {
+        var info = x.responseText;
+        var  o = eval("("+info+")" + "()");
+        alert(o);
+
+    }
+}
+x.send(null);
+
+
+</script>
+</body>
+</html>

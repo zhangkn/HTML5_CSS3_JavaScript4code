@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+body {
+    padding: 6px;
+    margin:0;
+    background: #79a693;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+h1, h2 {
+    margin: 0;
+    text-shadow: 1px 1px 1px #A4A4A4;
+}
+p {
+    margin: 0;
+}
+
+#main-wrap {
+    display: -webkit-box;           /* 2009版 - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;              /* 2009版 - Firefox 19- (存在缺陷) */
+    display: -ms-flexbox;           /* 2011版 - IE 10 */
+    display: -webkit-flex;          /* 最新版 - Chrome */
+    display: flex;                  /* 最新版 - Opera 12.1, Firefox 20+ */
+}
+#main-content {
+    -webkit-box-ordinal-group: 2;   /* 2009版 - iOS 6-, Safari 3.1-6 */
+    -moz-box-ordinal-group: 2;      /* 2009版 - Firefox 19- */
+    -ms-flex-order: 2;              /* 2011版 - IE 10 */
+    -webkit-order: 2;               /* 最新版 - Chrome */
+    order: 2;                       /* 最新版 - Opera 12.1, Firefox 20+ */
+    width: 60%;                     /* 不会自动伸缩,其他列将占据空间 */
+    -moz-box-flex: 1;               /* 如果没有该声明，主内容（60%）会伸展到和最宽的段落，就像是段落设置了white-space:nowrap */
+}
+#main-nav {
+    -webkit-box-ordinal-group: 1;   /* 2009版 - iOS 6-, Safari 3.1-6 */
+    -moz-box-ordinal-group: 1;      /* 2009版 - Firefox 19- */
+    -ms-flex-order: 1;              /* 2011版 - IE 10 */
+    -webkit-order: 1;               /* 最新版 - Chrome */
+    order: 1;                       /* 最新版 - Opera 12.1, Firefox 20+ */
+    -webkit-box-flex: 1;            /* 2009版 - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;               /* 2009版 - Firefox 19- */
+    width: 20%;                     /* 2009版语法, 否则将崩溃 */
+    -webkit-flex: 1;                /* Chrome */
+    -ms-flex: 1;                    /* IE 10 */
+    flex: 1;                        /* 最新版 - Opera 12.1, Firefox 20+ */
+}
+#main-sidebar {
+    -webkit-box-ordinal-group: 3;   /* 2009版 - iOS 6-, Safari 3.1-6 */
+    -moz-box-ordinal-group: 3;      /* 2009版 - Firefox 19- */
+    -ms-flex-order: 3;              /* 2011版 - IE 10 */
+    -webkit-order: 3;               /* 最新版 - Chrome */
+    order: 3;                       /* 最新版, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-box-flex: 1;            /* 2009版 - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;               /* Firefox 19- */
+    width: 20%;                     /* 2009版，否则将崩溃 */
+    -ms-flex: 1;                    /* 2011版 - IE 10 */
+    -webkit-flex: 1;                /* 最新版 - Chrome */
+    flex: 1;                        /* 最新版 - Opera 12.1, Firefox 20+ */
+}
+
+#container {
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:1px 1px 1px #666;
+}
+#header {
+    background: #EEE;
+    color: #79B30B;
+    height:100px;
+    text-align:center;
+}
+#header  h1{
+    line-height:100px;
+}
+#footer {
+    background: #444;
+    color: #ddd;
+    height:60px;
+    line-height:60px;   
+    text-align:center;
+}
+
+#main-content, #main-sidebar, #main-nav {
+    padding: 1em;
+}
+#main-content {
+    background: white;
+}
+#main-nav {
+    background: #B9CAFF;
+    color: #FF8539;
+}
+#main-sidebar {
+    background: #FF8539;
+    color: #B9CAFF;
+}
+
+
+</style>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <h1>页眉区域</h1>
+    </div>
+    <div id="main-wrap">
+        <section id="main-content">
+            <h1>1.主体内容区域</h1>
+            <p><strong>强调内容</strong></p>
+            <p>段落文本</p>
+            <p>描述文本</p>
+        </section>
+        <nav id="main-nav">
+            <h2>2.导航栏</h2>
+            <ul>
+                <li><a href="#">主页</a></li>
+                <li><a href="#">咨询</a></li>
+                <li><a href="#">产品</a></li>
+                <li><a href="#">关于</a></li>
+                <li><a href="#">更多</a></li>
+            </ul>
+        </nav>
+        <aside id="main-sidebar">
+            <h2>3.其他栏目</h2>
+            <p>侧栏内容</p>
+        </aside>
+    </div>
+    <div id="footer">
+        <p>页脚区域</p>
+    </div>
+</div>
+</body>
+</html> 

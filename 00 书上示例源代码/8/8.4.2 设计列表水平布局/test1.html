@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>列表布局</title>
+<style type="text/css">
+#menu {/* 定义列表基本样式 */
+    padding: 6px 0; 								/* 增加列表的上下补白，间接定义宽度 */
+    margin: 0; 									/* 清除边界 */
+    width: 600px; 									/* 固定导航菜单的宽度 */
+    background-color: #FFF2BF; 						/* 定义背景色 */
+}
+#menu li {/* 定义列表项目行内显示 */
+    list-style: none; 								/* 清除项目列表符号 */
+    display: inline; 								/* 行内显示 */
+}
+#menu li a {/* 定义超链接样式 */
+    padding: 3px 0.5em; 							/* 顶部补白，间接定义文本垂直居中 */
+    text-decoration: none; 							/* 清除超链接下划线 */
+    color: black; 									/* 黑色字体 */
+    background-color: #FFF2BF; 						/* 浅黄色背景 */
+    border: 2px solid #FFF2BF; 						/* 边框样式 */
+}
+#menu li a:hover {/* 定义鼠标经过时的样式 */
+    color: black; 									/* 黑谁字体 */
+    background-color: #FFE271; 						/* 增加黄色背景效果 */
+    border-style: outset; 							/* 定义立体边框样式（立体凸边） */
+}
+#menu li a:active {/* 定义超链接被激活时的样式 */
+    border-style: inset; 								/* 定义立体边框样式（立体凹边） */
+}
+</style>
+</head>
+<body>
+<h1>网站分类</h1>
+<ul id="menu">
+    <li><a href="#" title="">软件工程</a></li>
+    <li><a href="#" title="">编程语言</a></li>
+    <li><a href="#" title="">软件设计</a></li>
+    <li><a href="#" title="">Web前端</a></li>
+    <li><a href="#" title="">手机开发</a></li>
+    <li><a href="#" title="">所有随笔</a></li>
+</ul>
+</body>
+</html> 

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+* { font-size: 14px;	/* 定义字体大小 */ }
+li { line-height: 25px;	/* 设置行高 */ }
+span {
+    padding-left: 10px;	/* 设置左间距 */
+    font-size: 12px;	/* 重置字体大小 */
+}
+div {
+    text-align: center;	/* IE浏览器下居中 */
+    margin: 0 auto;	/* 火狐浏览器下居中 */
+}
+.head {
+    width: 600px;	/* 定义宽度 */
+    background-color: #99CCFF;	/* 类别选择器设置背景色 */
+    text-align: left;	/* 文本左对齐 */
+}
+.head h3 {
+    font-weight: bold;	/* 字体加粗 */
+    background-color: #FF9999;	/* 类别选择器和标记选择器一起设置背景色 */
+}
+.head h3 a { float: right;	/* 设置右浮动 */ }
+.head li {
+    background-color: #999999;	/* 类别选择器和标记选择器一起设置背景色 */
+    width: 400px;	/* 设置宽度 */
+    margin-bottom: 5px;	/* 设置下边距 */
+    text-align:left;
+}
+.list li { background-color: #9999CC;	/* 设置背景色 */ }
+#AT li span { background-color: #33CCFF;	/* 使用ID选择器等复合选择器设置背景色 */ }
+.head .list ul li span { background-color: #99CC00;	/* 多个类别选择器和标记选择器设置背景色 */ }
+</style>
+</head>
+<body>
+<div class="head" id="AT">
+    <h3><a href="#">More>></a><span>新闻动态</span></h3>
+    <div class="list">
+        <ul id="S2">
+            <li><a href="#">微信“阅读数”是怎么算的？<span>[07-27]</span></a></li>
+            <li><a href="#">重振人工智能雄心壮志的时刻已经到了<span>[07-25] </span></a></li>
+            <li><a href="#">Google再次“登月” Baseline工程把基因大数据化<span>[07-26] </span></a></li>
+        </ul>
+    </div>
+    <!--list end-->  
+</div>
+<!--left2-1 end-->
+</body>
+</html>

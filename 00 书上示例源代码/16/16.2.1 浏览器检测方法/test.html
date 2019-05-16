@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<script type="text/javascript">
+
+//【示例1】
+
+if(document.getElementsByName){ 		// 如果存在，则使用该方法获取a元素
+    var a = document.getElementsByName("a");
+}
+else if(document.getElementsByTagName){ 	// 如果存在，则使用该方法获取a元素
+    var a = document.getElementsByTagName("a");
+}
+
+//【示例2】
+
+var s = window.navigator.userAgent;
+alert(s); 
+	// 返回字符串"Mozilla /4.0 (compatible;MSIE 7.0;Windows NT 5.1;DigExt ; NET CLR 2. 0.50727 ) "
+
+var s = navigator.userAgent;
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html> 

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title></title>
+<script>
+// 封装创建XMLHttpRequest对象
+function createXMLHTTPObject()
+{
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest()},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+	];
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i ++ )
+    {
+        try
+        {
+            xmlhttp = XMLHttpFactories[i]();
+        }
+        catch (e)
+        {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+//封装异步请求函数
+function request(url, callback, data)
+{
+    var xmlHttp = createXMLHTTPObject();
+    if ( ! xmlHttp) return;
+    var method = (data) ? "POST" : "GET";
+    xmlHttp.open(method, url, true);
+    xmlHttp.setRequestHeader('User-Agent', 'XMLHTTP/1.0');
+    if (data)
+    xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange = function ()
+    {
+        if (xmlHttp.readyState != 4) return;
+        if (xmlHttp.status != 200 && xmlHttp.status != 304)
+        {
+            alert('HTTP请求错误  ' + xmlHttp.status);
+            return;
+        }
+        callback(xmlHttp);
+    }
+    if (xmlHttp.readyState == 4) return;
+    xmlHttp.send(data);
+}
+</script>
+<script>
+function check(){
+    var coun = document.getElementById( "coun" ).value;
+    request( "test.asp?coun=" + coun, callback );
+}
+function callback( xhr )
+{
+	var xml = xhr.responseXML;
+    var count = "";
+    var html = "";
+    var items = xml.getElementsByTagName( "item" );
+    html += "<table><tr><th>成员名</th><th>类型</th><th>说明</th></tr>"
+    //for( var i  in  items ){
+	for( var i=0 ; i< items.length; i++ ){
+        html += "<tr>"
+        var child = items[i].childNodes
+        //for( var n in child ){
+		for( var n=0 ; n< child.length; n++ ){
+			if( child[n].nodeType == 1 ){
+				html += "<td>"
+				html += child[n].firstChild.data;
+				html += "</td>"
+			}
+        }
+        html += "</tr>";
+    }
+    html += "</table>";
+	var info = document.getElementById( "info" );
+	info.innerHTML = html;
+}
+</script>
+<style type="text/css">
+table {
+    margin: 1em;
+    border-collapse: collapse;
+    border: solid 1px #FF33FF;
+}
+td, th {
+    border: solid 1px #FF33FF;
+    padding: 4px 8px;
+}
+</style>
+</head>
+<body>
+<h1>显示记录个数</h1>
+显示记录数：
+<input name="coun" type="text" id="coun">
+（最多14条）
+<input type="button" onClick="check();" value="查询">
+<div id="info"></div>
+</body>
+</html>

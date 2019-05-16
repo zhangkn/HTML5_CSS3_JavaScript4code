@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+
+var XHR = function() {
+    var standard = {
+        createXHR : function() {
+            return new XMLHttpRequest();
+        }
+    }
+    var newActionXObject = {
+        createXHR : function() {
+            return new ActionXObject("Msxml2.XMLHTTP");
+        }
+    }
+    var oldActionXObject = {
+        createXHR : function() {
+            return new ActionXObject("Microsoft.XMLHTTP");
+        }
+    }
+    if(standard.createXHR()) {
+        return standard;
+    } else {
+        try {
+            newActionXObject.createXHR();
+            return newActionXObject;
+        } catch(o) {
+            oldActionXObject.createXHR();
+            return oldActionXObject;
+        }
+    }
+}();
+
+
+</script>
+</body>
+</html>

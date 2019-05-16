@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+body {/*清除页边距*/
+    margin:0; /*适用IE*/
+    padding:0; /*适用非IE*/
+}
+div {/* 定义上下元素共同属性 */
+    width:100px;
+    height:100px;
+    clear:both;
+    margin:20px;
+    padding:20px;
+}
+#box1 {/* 定义上边元素浮动 */
+    float:left;
+    border:solid 20px red;
+}
+#box2 {/* 定义下边元素不浮动 */
+    border:solid 20px blue;
+}
+</style>
+</head>
+<body>
+<div id="box1">上边元素</div>
+<div id="box2">下边元素</div>
+</body>
+</html> 
