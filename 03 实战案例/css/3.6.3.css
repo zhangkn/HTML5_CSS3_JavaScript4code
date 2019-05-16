@@ -1,0 +1,37 @@
+body {
+    background: url("../img/3.6.3/bg2.jpg") no-repeat;
+    width: 995px;
+    height: 1401px;
+}
+
+#wrap {
+    position: absolute;
+    width: 242px;
+    height: 232px;
+    z-index: 1;
+    left: 737px;
+    top: 395px;
+}
+
+a {
+    padding-left: 24px;
+    text-decoration: none;
+}
+
+span {
+    color: #999;
+    font-size: 12px;
+    display: block;
+    padding-left: 24px;
+    padding-bottom: 6px;
+}
+
+p {
+    margin: 4px;
+}
+
+a[href="pdf"] { background: url("../img/3.6.3/pdf.jpg") no-repeat left center; }
+a[href="ppt"] { background: url("../img/3.6.3/ppt.jpg") no-repeat left center; }
+a[href="txt"] { background: url("../img/3.6.3/txt.jpg") no-repeat left center; }
+a[href="doc"] { background: url("../img/3.6.3/doc.jpg") no-repeat left center; }
+a[href="xls"] { background: url("../img/3.6.3/xls.jpg") no-repeat left center; }
